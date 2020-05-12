@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/script.js"></script>
+    <title>homework</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="display"></div>
+        <div class="keyboard">
+        <input type='button' class='btn' value='%' disabled>
+        <input type='button' class='btn' value='CE' id='clean'>
+        <input type='button' class='btn' value='C' disabled>
+        <input type='button' class='btn' value='del' id='del'>
+        <input type='button' class='btn' value='1/x' id='reverse'>
+        <input type='button' class='btn' value='x^2' id='grade'>
+        <input type='button' class='btn' value='x^(1/2)' id='radical'>
+        <input type='button' class='btn js-btn' value='/'>
+        <input type='button' class='btn js-btn' value='7'>
+        <input type='button' class='btn js-btn' value='8'>
+        <input type='button' class='btn js-btn' value='9'>
+        <input type='button' class='btn js-btn' value='*'>
+        <input type='button' class='btn js-btn' value='4'>
+        <input type='button' class='btn js-btn' value='5'>
+        <input type='button' class='btn js-btn' value='6'>
+        <input type='button' class='btn js-btn' value='-'>
+        <input type='button' class='btn js-btn' value='1'>
+        <input type='button' class='btn js-btn' value='2'>
+        <input type='button' class='btn js-btn' value='3'>
+        <input type='button' class='btn js-btn' value='+'>
+        <input type='button' class='btn js-btn' value='+/-' disabled>
+        <input type='button' class='btn js-btn' value='0'>
+        <input type='button' class='btn' value='.' id='koma'>
+        <input type='button' class='btn' value='=' id='res' >
+    </div>
+    </div>
+
+    <script>
+        $('.js-btn').click(
+            function(){
+                temp += $(this).val();
+                temp = eval(temp);
+                $('.display').text(temp);
+            }
+        )
+
+        $('#res').click(function(){
+            temp = eval(temp);
+            $('.display').text(temp);
+        })
+
+        $('#grade').click(function(){
+            temp = temp**(2);
+            $('.display').text(temp);
+        })
+
+        $('#radical').click(function(){
+            temp = temp**(1/2);
+            $('.display').text(temp);
+        })
+
+        $('#del').click(function(){
+            temp = '' + temp;
+            temp = temp.substring(0, temp.length - 1);
+            $('.display').text(temp);
+        })
+
+        $('#clean').click(function(){
+            temp = 0;
+            $('.display').text(temp);
+        })
+
+        $('#reverse').click(function(){
+            temp = 1 / temp;
+            $('.display').text(temp);
+        })
+
+        $('#koma').click(function(){
+            temp = String(temp);
+            temp+= '.';
+        })
+
+
+    </script>
+</body>
+</html>
